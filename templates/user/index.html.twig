@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1>Liste des utilisateurs</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Email</th>
+      <th scope="col">tel</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if users %}
+  {% for user in users %}
+    <tr>
+      <th scope="row">{{user.nom}}</th>
+      <td>{{user.Prenom}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.tel}}</td>
+      <td><a href="{{path('panier',{'id':user.id})}}" class="btn btn-success">panier</a></td>
+      <td><a href="{{path('deleteuser',{'id':user.id})}}" class="btn btn-danger">supprimer</a></td>
+    </tr>
+  {% endfor %}
+  {% endif %}
+  </tbody>
+</table>
+{% endblock %}
