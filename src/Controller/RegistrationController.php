@@ -72,8 +72,6 @@ class RegistrationController extends AbstractController
      * @Route("/user/panier/{id}", name="panier")
      */
     public function panier($id): Response{
-        $repo=$this->getDoctrine()->getRepository(UserSecurity::class);
-        $product=$repo->find($id);
         #return $this->render('product/product.html.twig', ['product' => $product,]);
         return $this->render('user/panier.html.twig');
     }
